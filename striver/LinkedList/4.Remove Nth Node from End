@@ -1,0 +1,23 @@
+//Solution 1 focus here egde case i.e when n == size ;
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode tmp = head;
+        int size = 0;
+        while (tmp != null) {
+            size++;
+            tmp = tmp.next;
+        }
+        if(size == n){
+            head = head.next ;
+            return head ;
+        }
+        tmp = head;
+        int counter = size - n;
+        while (counter-- > 1) {
+            tmp = tmp.next;
+        }
+        tmp.next = tmp.next.next;
+        return head;
+
+    }
+}
